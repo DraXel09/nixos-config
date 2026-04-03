@@ -49,7 +49,6 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-   # jack.enable = true;
   };
 
   # === Usuario ===
@@ -59,9 +58,23 @@
     extraGroups = [ "networkmanager" "wheel" ];
   };
 
+  # === SSH & Firewall ===
+  services.openssh = {
+    enable = true;
+    settings = {
+    PasswordAuthentication = false;
+    PermitRootLogin = "prohibit-password";
+    };
+  };
+  networking.firewall = {
+    enable = true;
+    allowedTCPPorts = [ 22 80 443 ];
+    # Permitir puertos UDP específicos (ej. para DNS o WireGuard)
+    #allowedUDPPorts = [ 53 51820 ];
+  };
+
   # === Sistema Base ===
   services.printing.enable = true;
-  services.power-profiles-daemon.enable = false;
   services.tlp.enable = false;
   services.tuned.enable = true;
   services.tuned.ppdSupport = true;
