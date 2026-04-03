@@ -1,0 +1,13 @@
+# Secrets & claves
+secrets/
+*.key
+*.pem
+.env
+*.gpg
+*.age
+
+# Archivos temporales o específicos de la máquina
+# hardware-configuration.nix   # Descomentá si querés ignorarlo (opcional)
+
+# Nix/Git
+.result
