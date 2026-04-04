@@ -9,8 +9,6 @@
     ./modules/bundle-home.nix
   ];
 
-  # programs.home-manager.enable = true;
-
   # === Shell ===
   programs.bash.enable = true;
 

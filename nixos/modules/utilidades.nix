@@ -10,7 +10,6 @@
   config = lib.mkIf config.utilidades.enable {
     # --- Diccionarios ---
     environment.pathsToLink = [ "/share/hunspell" "/share/hyphen" ];
-    environment.variables.DICPATH = "${pkgs.hunspell}/share/hunspell";
 
     # --- Flatpak ---
     services.flatpak.enable = true;
@@ -63,6 +62,6 @@
     # --- NoiseTorch (Opcional y corregido) ---
     # Habilita el programa, pero NO inicia la UI automáticamente.
     # Tú lanzas 'noisetorch' desde el menú de aplicaciones cuando lo necesites.
-    # ograms.noisetorch.enable = true;
+    # programs.noisetorch.enable = true;
   };
 }

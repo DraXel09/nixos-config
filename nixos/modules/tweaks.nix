@@ -37,16 +37,14 @@ in
 
     # Cache de shaders
     environment.variables = mkSysIf {
-      MESA_SHADER_CACHE_MAX_SIZE = "12G";
-      # Optimización AMD específica
-      RADV_PERFTEST = "aco";
+      MESA_SHADER_CACHE_MAX_SIZE = "6G";
     };
 
     # Zram Swap — el mkIf interno lo maneja cfg.enableZram
     zramSwap = mkSysIf {
       enable = cfg.enableZram;
       algorithm = "zstd";
-      memoryPercent = 25;  # ~3GB en laptop
+      memoryPercent = 30; 
       priority = 5;
     };
 

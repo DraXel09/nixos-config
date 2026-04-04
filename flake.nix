@@ -4,12 +4,12 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
+    nixos-hardware.url = "github:Nixos/nixos-hardware/master";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    nixos-hardware.url = "github:Nixos/nixos-hardware/master";
 
     eden = {
       url = "github:daaboulex/eden-nix";
