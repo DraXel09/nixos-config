@@ -36,8 +36,8 @@
     programs.kdeconnect.enable = true;
 
     # (Opcional) Evitar TTY1 compitiendo con SDDM
-    systemd.services."getty@tty1".enable = false;
-    systemd.services."autovt@tty1".enable = false; 
+    # systemd.services."getty@tty1".enable = false;
+    # systemd.services."autovt@tty1".enable = false;
 
     # Local 
     i18n.extraLocaleSettings = {

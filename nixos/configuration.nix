@@ -25,7 +25,7 @@
     efi.canTouchEfiVariables = true;
   };
 
-  # === Plymouth: mínimo necesario ===
+  # === Plymouth ===
   boot.plymouth.enable = true;
   boot.consoleLogLevel = 0;
   boot.initrd.verbose = false;
@@ -68,7 +68,7 @@
   };
   networking.firewall = {
     enable = true;
-    allowedTCPPorts = [ 22 80 443 ];
+    allowedTCPPorts = [ 80 443 ];
     # Permitir puertos UDP específicos (ej. para DNS o WireGuard)
     #allowedUDPPorts = [ 53 51820 ];
   };

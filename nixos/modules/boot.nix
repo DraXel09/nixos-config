@@ -9,6 +9,6 @@ let cfg = config.myBoot; in
 
   config = lib.mkIf cfg.enable {
     boot.kernelParams = lib.mkDefault [ "quiet" "splash" ];
-    boot.loader.timeout = lib.mkDefault 5;
+    boot.loader.timeout = lib.mkDefault 3;
   };
 }
