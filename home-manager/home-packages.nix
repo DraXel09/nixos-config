@@ -9,5 +9,6 @@
     vlc
     scrcpy
     gearlever
+    libreoffice-qt-fresh
   ];
 }
