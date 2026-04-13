@@ -1,22 +1,25 @@
 { config, pkgs, lib, ... }:
 {
-  # === Declaración de la opción ===
+  # --- Declaración de la opción ---
   options.plasma.enable = lib.mkOption {
     type = lib.types.bool;
     default = false;
     description = "Enable KDE Plasma desktop environment customizations";
   };
 
-  # === Configuración condicional ===
+  # --- Configuración condicional ---
   config = lib.mkIf config.plasma.enable { 
 
     # Bluetooth
     hardware.bluetooth.enable = true;
 
-    # Portales XDG (esencial para sandboxing)
+    # Portales XDG
     xdg.portal = {
       enable = true;
-      extraPortals = [ pkgs.kdePackages.xdg-desktop-portal-kde ];
+      extraPortals = [ 
+        pkgs.kdePackages.xdg-desktop-portal-kde 
+        pkgs.xdg-desktop-portal-gtk # Opcional
+      ];
       xdgOpenUsePortal = true;
     };
 

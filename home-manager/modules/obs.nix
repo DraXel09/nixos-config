@@ -20,6 +20,7 @@ in
       liberation_ttf
       fira-code
       fira-code-symbols
+      atkinson-hyperlegible
     ]);
 
     # --- OBS Studio ---
