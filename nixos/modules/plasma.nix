@@ -7,7 +7,6 @@
     description = "Enable KDE Plasma desktop environment customizations";
   };
 
-  # --- Configuración condicional ---
   config = lib.mkIf config.plasma.enable { 
 
     # Bluetooth

@@ -2,7 +2,6 @@
   programs.eden.enable = true;
   programs.firefox.enable = true;
   environment.systemPackages = with pkgs; [
-     vim
      gparted
   ];
 }

@@ -1,65 +1,41 @@
 { config, pkgs, lib, ... }:
-let
-  cfg = config.tweaks;
-
-  # Helper para activación condicional
-  mkSysIf = lib.mkIf cfg.enable;
-in
 {
-  # --- Opciones bajo namespace propio ---
+  # --- Declaración de la opción principal ---
   options.tweaks = {
-    enable = lib.mkEnableOption "system-wide optimizations (graphics, zram, nix)";
-
-    enableZram = lib.mkOption {
-      type = lib.types.bool;
-      default = true;
-      description = "Enable zram swap (compressed RAM swap)";
-    };
-
-    enableNixOptimise = lib.mkOption {
-      type = lib.types.bool;
-      default = true;
-      description = "Enable automatic Nix store optimisation";
-    };
+    enable = lib.mkEnableOption "tweaks/optimizaciones del sistema";
   };
 
-  # --- Configuración ---
-  config = {
+  config = lib.mkIf config.tweaks.enable {
 
-    # Gráficos AMD
-    hardware.graphics = mkSysIf {
+    # Gráficos AMD (32-bit + basic)
+    hardware.graphics = {
       enable = true;
       enable32Bit = true;
-      extraPackages = with pkgs; [
-        #rocmPackages.clr.icd # Para Davinci
-      ];
+      # extraPackages = with pkgs; [ rocmPackages.clr.icd ];  # descomentar si se necesita Davinci
     };
 
-    # Cache de shaders
-    environment.variables = mkSysIf {
-      MESA_SHADER_CACHE_MAX_SIZE = "6G";
-    };
+    # Cache de shaders Mesa (mejora rendimiento gráfico)
+    environment.variables.MESA_SHADER_CACHE_MAX_SIZE = "6G";
 
-    # Zram Swap — el mkIf interno lo maneja cfg.enableZram
-    zramSwap = mkSysIf {
-      enable = cfg.enableZram;
+    # Zram Swap (swap comprimida en RAM)
+    zramSwap = {
+      enable = true;
       algorithm = "zstd";
-      memoryPercent = 30; 
+      memoryPercent = 30;
       priority = 5;
     };
 
-    # Optimización Nix Store
-    nix = mkSysIf {
-      optimise = lib.mkIf cfg.enableNixOptimise {
+    # Optimización automática del store de Nix
+    nix = {
+      optimise = {
         automatic = true;
         dates = [ "weekly" ];
       };
-      settings = lib.mkIf cfg.enableNixOptimise {
-        auto-optimise-store = true;
-      };
+      settings.auto-optimise-store = true;
     };
 
-    # Hora local (solo si dual-boot con Windows)
-    # time.hardwareClockInLocalTime = mkSysIf true;
+    # Hora local (útil si se tiene dual-boot con Windows)
+    # time.hardwareClockInLocalTime = true;
+
   };
 }

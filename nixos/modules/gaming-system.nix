@@ -1,5 +1,5 @@
 { config, lib, pkgs, ... }:
-# === Parte de SISTEMA ===
+
 let
   # Definimos cfg para referenciar las opciones de este módulo fácilmente
   cfg = config.programs.gaming;
@@ -19,16 +19,13 @@ in
       # Habilita soporte general para gráficos (necesario para Vulkan/OpenGL)
       graphics.enable = true;
       steam-hardware.enable = true;
-      xone.enable = true;              # Soporte para mandos Xbox One
-      xpadneo.enable = true;           # Soporte para mandos Xbox Bluetooth
+      xone.enable = true;              
+      xpadneo.enable = true;           
      # opentabletdriver.enable = true; # Soporte para tabletas gráficas
     };
 
     # --- Servicios ---
-    programs.gamemode.enable = true; # Optimizaciones de rendimiento en juego
-    #services.udev.extraRules = ''
-     # ATTRS{name}=="*Touchpad", ENV{LIBINPUT_IGNORE_DEVICE}="1"
-    #'';
+    programs.gamemode.enable = true;
     services.input-remapper.enable = cfg.enableInputRemapper;
 
     # --- Polkit rules ---

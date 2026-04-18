@@ -1,5 +1,4 @@
 { config, pkgs, lib, ... }:
-# === Módulo de Cámara Virtual para OBS/Streaming ===
 let
   cfg = config.virtualCamera;
 in

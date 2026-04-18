@@ -1,6 +1,6 @@
 { lib, config, pkgs, ... }:
 {
-  # Opción simple para activar/desactivar este conjunto de paquetes
+  # Opción para activar/desactivar este conjunto de paquetes
   options.utilidades.enable = lib.mkOption {
     description = "Enable custom package set";
     type = lib.types.bool;
@@ -54,14 +54,13 @@
 
       # Idioma
       hunspell
-      hunspellDicts.es_ES  # Cambiado a español
+      hunspellDicts.es_ES
       hunspellDicts.en_US-large
       hyphen
     ];
 
-    # --- NoiseTorch (Opcional y corregido) ---
+    # --- NoiseTorch ---
     # Habilita el programa, pero NO inicia la UI automáticamente.
-    # Tú lanzas 'noisetorch' desde el menú de aplicaciones cuando lo necesites.
     # programs.noisetorch.enable = true;
   };
 }
