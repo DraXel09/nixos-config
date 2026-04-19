@@ -41,4 +41,3 @@ sudo nix-collect-garbage -d
 ---
 
 *Config generado con ❤️ y NixOS*
-```

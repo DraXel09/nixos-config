@@ -6,6 +6,7 @@
     ./virtual-camera.nix
     ./utilidades.nix
     ./gaming-system.nix
+    ./sunshine.nix
   ];
 
   # === Activación de Modulos ===
@@ -21,4 +22,5 @@
   utilidades.enable = true;     # utilidades.nix
   tweaks.enable = true;        # tweaks.nix
   myBoot.enable = true;        # Activar boot.nix
+  sunshine.enable = true;      # Activar sunshine.nix
 }

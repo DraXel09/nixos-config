@@ -7,7 +7,8 @@ secrets/
 *.age
 
 # Archivos temporales o específicos de la máquina
-# hardware-configuration.nix   # Descomentá si querés ignorarlo (opcional)
+# hardware-configuration.nix   # Descomentar si se quiere ignorarlo (opcional)
 
 # Nix/Git
 .result
+.directory

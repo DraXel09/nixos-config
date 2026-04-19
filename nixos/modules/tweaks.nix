@@ -27,11 +27,16 @@
 
     # Optimización automática del store de Nix
     nix = {
-      optimise = {
-        automatic = true;
-        dates = [ "weekly" ];
+      settings = {
+        auto-optimise-store = true;
       };
-      settings.auto-optimise-store = true;
+    };
+
+    # Eliminación de generaciones antiguas de Nix
+    nix.gc = {
+      automatic = true;
+      dates = [ "weekly" ];
+      options = "--delete-older-than 14d";  # eliminar generaciones
     };
 
     # Hora local (útil si se tiene dual-boot con Windows)
