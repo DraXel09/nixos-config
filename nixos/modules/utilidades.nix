@@ -1,29 +1,38 @@
-{ lib, config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
+
+let 
+  cfg = config.utilidades;
+in 
 {
-  # Opción para activar/desactivar este conjunto de paquetes
-  options.utilidades.enable = lib.mkOption {
-    description = "Enable custom package set";
-    type = lib.types.bool;
-    default = true;
+  # --- Declaración de Opciones ---
+  options.utilidades = {
+    enable = lib.mkEnableOption "Utilidades adicionales para el sistema";
   };
 
-  config = lib.mkIf config.utilidades.enable {
-    # --- Diccionarios ---
-    environment.pathsToLink = [ "/share/hunspell" "/share/hyphen" ];
+  config = lib.mkIf cfg.enable {
 
-    # --- Flatpak ---
+    # Hardware gráfico y multimedia
+    hardware = {
+      graphics.enable = true;
+      graphics.enable32Bit = true;
+      graphics.extraPackages = with pkgs; [ 
+        # rocmPackages.clr.icd  # Para Davinci Resolve
+      ];
+      # opentabletdriver.enable = true; # Soporte para tabletas gráficas
+    };
+   
+    # Soporte para Flatpak, AppImage y Nix-ld
     services.flatpak.enable = true;
-
-    # --- Soporte binarios externos ---
     programs.nix-ld.enable = true;
-
-    # --- AppImage ---
     programs.appimage = {
       enable = true;
       binfmt = true;
     };
 
-    # --- Paquetes del Sistema ---
+    # Diccionarios
+    environment.pathsToLink = [ "/share/hunspell" "/share/hyphen" ];
+
+    # Paquetes del Sistema
     environment.systemPackages = with pkgs; [
       # Multimedia
       ffmpeg
@@ -58,9 +67,5 @@
       hunspellDicts.en_US-large
       hyphen
     ];
-
-    # --- NoiseTorch ---
-    # Habilita el programa, pero NO inicia la UI automáticamente.
-    # programs.noisetorch.enable = true;
   };
 }

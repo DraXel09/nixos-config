@@ -1,35 +1,47 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
+
+let 
+  cfg = config.gamingHome;
+in 
 {
-  home.packages = with pkgs; [
-    # --- Lanzadores y Compatibilidad ---
-    (lutris.override {
-    extraLibraries = p: [ p.libadwaita p.gtk4 ];
-    })
-    umu-launcher
-    faugus-launcher
-    wineWow64Packages.staging # Wine con soporte 64/32 bits
-    winetricks 
-    protonplus
+  # --- Declaración de Opciones ---
+  options.gamingHome = {
+    enable = lib.mkEnableOption "Configuración personalizada para gaming";
+  };
 
-    # --- Emuladores ---
-    ryubing
+  config = lib.mkIf cfg.enable {
+    # Paquetes y Programas para Gaming
+    home.packages = with pkgs; [
+     # Lanzadores y Compatibilidad
+     (lutris.override {
+     extraLibraries = p: [ p.libadwaita p.gtk4 ];
+     })
+     umu-launcher
+     faugus-launcher
+     wineWow64Packages.staging # Wine con soporte 64/32 bits
+     winetricks 
+     protonplus
 
-    # --- Herramientas de Diagnóstico ---
-    mesa-demos   # Utilidades de diagnóstico Mesa
-    vulkan-tools # Herramientas de diagnóstico Vulkan
+     # Emuladores
+     ryubing
+
+     # Herramientas de Diagnóstico
+     mesa-demos  
+     vulkan-tools 
     
-    # --- Overlay y Redimiento ---
-    mangohud 
-    goverlay 
-    vkbasalt 
+     # Overlay y Redimiento
+     mangohud 
+     goverlay 
+     vkbasalt 
 
-    # --- Hardware Gaming ---
-    joystickwake      # Mantiene el joystick despierto
-    #input-remapper   # opcional si quieres solo binarios (GUI cliente)
-  ];
+     # Hardware Gaming 
+     joystickwake      # Despierta el sistema al conectar un mando
+     #input-remapper   # Reasigna botones de mando (GUI)
+   ];
 
-  home.sessionVariables = {
-    # Ruta adicional para herramientas de compatibilidad de Steam (Proton custom)
-    STEAM_EXTRA_COMPAT_TOOLS_PATHS = "${config.home.homeDirectory}/.steam/root/compatibilitytools.d";
+   home.sessionVariables = {
+     # Ruta adicional para herramientas de compatibilidad de Steam (Proton custom)
+     STEAM_EXTRA_COMPAT_TOOLS_PATHS = "${config.home.homeDirectory}/.steam/root/compatibilitytools.d";
+   };
   };
 }

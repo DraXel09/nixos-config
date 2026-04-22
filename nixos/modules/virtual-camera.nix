@@ -1,14 +1,16 @@
 { config, pkgs, lib, ... }:
+
 let
   cfg = config.virtualCamera;
 in
 {
   # --- Declaración de Opciones ---
   options.virtualCamera = {
-    enable = lib.mkEnableOption "Virtual Camera support (v4l2loopback) for OBS and other apps";
+    enable = lib.mkEnableOption "Camara virtual para OBS, Zoom, etc.";
   };
 
   config = lib.mkIf cfg.enable {
+    
     # --- Añade el paquete del módulo al kernel actual ---
     boot.extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
     

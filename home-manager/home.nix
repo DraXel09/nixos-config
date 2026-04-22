@@ -12,7 +12,7 @@
   # === Shell ===
   programs.bash.enable = true;
 
-  # === Git Config (Solo usuario) ===
+  # === Git Config ===
 
   # === Archivos de configuración (Dotfiles) ===
   # Ejemplo: Enlazar configuraciones específicas de usuario

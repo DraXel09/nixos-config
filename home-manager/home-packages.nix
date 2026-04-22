@@ -1,11 +1,12 @@
-{ pkgs, ... }: {
+{ config, pkgs, ... }: {
+  programs.firefox.enable = true;
   home.packages = with pkgs; [
     # Desarrollo
     vscode-fhs
+    nixd
+    nixfmt
 
     # Utilidades personales
-    #telegram-desktop
-    obs-studio
     vlc
     scrcpy
     gearlever

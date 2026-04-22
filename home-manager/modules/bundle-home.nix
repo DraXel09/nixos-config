@@ -4,11 +4,7 @@
     ./obs.nix
   ];
 
-  # === Activación de Modulos ===
-  # OBS
-  #programs.streaming = {
-  #  enable = true;
-  #  enableOBS = true;
-  #  enableFonts = true;
-  #};
+  # Activación de Modulos
+  streaming.enable = true;     # OBS
+  gamingHome.enable = true;    # Gaming
 }

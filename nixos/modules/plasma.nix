@@ -1,13 +1,15 @@
 { config, pkgs, lib, ... }:
+
+let
+  cfg = config.plasma;
+in 
 {
   # --- Declaración de la opción ---
-  options.plasma.enable = lib.mkOption {
-    type = lib.types.bool;
-    default = false;
-    description = "Enable KDE Plasma desktop environment customizations";
+  options.plasma = {
+    enable = lib.mkEnableOption "Habilitar configuraciones extras de KDE";
   };
 
-  config = lib.mkIf config.plasma.enable { 
+  config = lib.mkIf cfg.enable { 
 
     # Bluetooth
     hardware.bluetooth.enable = true;

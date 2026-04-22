@@ -1,15 +1,18 @@
 { config, lib, pkgs, ... }:
-let cfg = config.myBoot; in
+
+let 
+  cfg = config.myBoot; 
+in
 {
-  options.myBoot.enable = lib.mkOption {
-    type = lib.types.bool;
-    default = false;
-    description = "Enable my boot tweaks";
+  options.myBoot = {
+    enable = lib.mkEnableOption "Habilitar configs de arranque";
   };
 
   config = lib.mkIf cfg.enable {
-    boot.kernelParams = lib.mkDefault [ "quiet" "splash" ];
-    boot.loader.timeout = lib.mkDefault 3;
-    boot.loader.grub.configurationLimit = lib.mkDefault 5;
+
+    # --- Boot Tweaks ---
+    boot.kernelParams = [ "quiet" "splash" ];
+    boot.loader.timeout = 3;
+    boot.loader.grub.configurationLimit = 5;
   };
 }

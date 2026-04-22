@@ -1,23 +1,19 @@
 { config, pkgs, lib, ... }:
+
+let 
+  cfg = config.tweaks;
+in 
 {
-  # --- Declaración de la opción principal ---
   options.tweaks = {
     enable = lib.mkEnableOption "tweaks/optimizaciones del sistema";
-  };
+  };  
 
-  config = lib.mkIf config.tweaks.enable {
+  config = lib.mkIf cfg.enable {
 
-    # Gráficos AMD (32-bit + basic)
-    hardware.graphics = {
-      enable = true;
-      enable32Bit = true;
-      # extraPackages = with pkgs; [ rocmPackages.clr.icd ];  # descomentar si se necesita Davinci
-    };
-
-    # Cache de shaders Mesa (mejora rendimiento gráfico)
+    # Cache de shaders Mesa
     environment.variables.MESA_SHADER_CACHE_MAX_SIZE = "6G";
 
-    # Zram Swap (swap comprimida en RAM)
+    # Zram Swap
     zramSwap = {
       enable = true;
       algorithm = "zstd";
@@ -36,7 +32,7 @@
     nix.gc = {
       automatic = true;
       dates = [ "weekly" ];
-      options = "--delete-older-than 14d";  # eliminar generaciones
+      options = "--delete-older-than 14d";  # eliminar generaciones 
     };
 
     # Hora local (útil si se tiene dual-boot con Windows)
