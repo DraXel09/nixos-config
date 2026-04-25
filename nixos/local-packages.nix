@@ -1,6 +1,8 @@
 { config, pkgs, ... }: {
   programs.eden.enable = true;
-  environment.systemPackages = with pkgs; [
-     gparted
+  programs.firefox.enable = true;
+  environment.systemPackages = with pkgs; [ 
+    bleachbit
+    gparted
   ];
 }

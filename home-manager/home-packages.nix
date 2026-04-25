@@ -1,5 +1,4 @@
 { config, pkgs, ... }: {
-  programs.firefox.enable = true;
   home.packages = with pkgs; [
     # Desarrollo
     vscode-fhs
@@ -11,5 +10,8 @@
     scrcpy
     gearlever
     libreoffice-qt-fresh
+
+    # Temas y personalización
+    bibata-cursors
   ];
 }

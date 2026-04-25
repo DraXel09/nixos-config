@@ -19,29 +19,45 @@ in
       enable = true;
       extraPortals = [ 
         pkgs.kdePackages.xdg-desktop-portal-kde 
-        pkgs.xdg-desktop-portal-gtk # Opcional
+       #pkgs.xdg-desktop-portal-gtk 
       ];
       xdgOpenUsePortal = true;
     };
 
     # Paquetes específicos
-    environment.plasma6.excludePackages = [ 
-        pkgs.kdePackages.discover 
+    environment.plasma6.excludePackages = with pkgs.kdePackages; [
+        discover
     ];
     environment.systemPackages = with pkgs; [
-      kdePackages.kpmcore
       kdePackages.kcalc
-      kdePackages.qtwebengine
-      kdePackages.filelight
       kdePackages.kate
+      kdePackages.sddm-kcm
+      kdePackages.filelight
+      kdePackages.qtwebengine
+      kdePackages.kpmcore
     ];
 
     # Integración móvil
     programs.kdeconnect.enable = true;
 
-    # (Opcional) Evitar TTY1 compitiendo con SDDM
-    # systemd.services."getty@tty1".enable = false;
-    # systemd.services."autovt@tty1".enable = false;
+    # Fix en aplicaciones GTK
+    environment.variables = {
+    GTK_MODULES = ""; 
+    };
+
+    # SDDM
+    services.displayManager.sddm = {
+      enable = true;
+      wayland.enable = true;
+      autoNumlock = true;
+      #theme = "sddm-astronaut-theme"; 
+      settings = {
+        Theme = {
+          CursorTheme = "Bibata-Modern-Ice";
+          CursorSize = 32;
+        };
+      };
+    };
 
     # Local 
     i18n.extraLocaleSettings = {
