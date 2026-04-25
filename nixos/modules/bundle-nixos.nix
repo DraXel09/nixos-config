@@ -6,6 +6,7 @@
     ./virtual-camera.nix
     ./utilidades.nix
     ./gaming-system.nix
+    ./sunshine.nix
   ];
 
   # === Activación de Modulos ===
