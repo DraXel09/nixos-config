@@ -12,6 +12,6 @@
     libreoffice-qt-fresh
 
     # Temas y personalización
-    bibata-cursors
+
   ];
 }

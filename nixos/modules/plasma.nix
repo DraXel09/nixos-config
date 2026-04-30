@@ -35,6 +35,7 @@ in
       kdePackages.filelight
       kdePackages.qtwebengine
       kdePackages.kpmcore
+      bibata-cursors
     ];
 
     # Integración móvil

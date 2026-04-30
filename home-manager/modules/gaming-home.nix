@@ -13,9 +13,17 @@ in
     # Paquetes y Programas para Gaming
     home.packages = with pkgs; [
      # Lanzadores y Compatibilidad
-     (lutris.override {
-     extraLibraries = p: [ p.libadwaita p.gtk4 ];
-     })
+    (lutris.override {
+      extraLibraries = p: [ p.libadwaita p.gtk4 ];
+      buildFHSEnv = args: pkgs.buildFHSEnv (args // {
+        multiPkgs = envPkgs:
+          let
+            originalPkgs = args.multiPkgs envPkgs;
+            customLdap = envPkgs.openldap.overrideAttrs (_: { doCheck = false; });
+          in
+          builtins.filter (p: (p.pname or "") != "openldap") originalPkgs ++ [ customLdap ];
+      });
+    })
      umu-launcher
      faugus-launcher
      wineWow64Packages.staging # Wine con soporte 64/32 bits
