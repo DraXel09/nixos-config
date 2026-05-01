@@ -12,6 +12,7 @@
     libreoffice-qt-fresh
 
     # Temas y personalización
-
+    kdePackages.qtstyleplugin-kvantum
+    kdePackages.qt6ct
   ];
 }

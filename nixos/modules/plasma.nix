@@ -19,7 +19,7 @@ in
       enable = true;
       extraPortals = [ 
         pkgs.kdePackages.xdg-desktop-portal-kde 
-       #pkgs.xdg-desktop-portal-gtk 
+        pkgs.xdg-desktop-portal-gtk 
       ];
       xdgOpenUsePortal = true;
     };
@@ -51,11 +51,10 @@ in
       enable = true;
       wayland.enable = true;
       autoNumlock = true;
-      #theme = "sddm-astronaut-theme"; 
       settings = {
         Theme = {
           CursorTheme = "Bibata-Modern-Ice";
-          CursorSize = 32;
+          CursorSize = 40;
         };
       };
     };
