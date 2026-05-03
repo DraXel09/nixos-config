@@ -31,11 +31,9 @@ in
     environment.systemPackages = with pkgs; [
       kdePackages.kcalc
       kdePackages.kate
-      kdePackages.sddm-kcm
       kdePackages.filelight
       kdePackages.qtwebengine
       kdePackages.kpmcore
-      bibata-cursors
     ];
 
     # Integración móvil
@@ -48,15 +46,8 @@ in
 
     # SDDM
     services.displayManager.sddm = {
-      enable = true;
       wayland.enable = true;
       autoNumlock = true;
-      settings = {
-        Theme = {
-          CursorTheme = "Bibata-Modern-Ice";
-          CursorSize = 40;
-        };
-      };
     };
 
     # Local 

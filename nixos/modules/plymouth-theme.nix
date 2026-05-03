@@ -1,12 +1,16 @@
 { pkgs, ... }: {
-  environment.systemPackages = with pkgs; [
-    (plymouth-themes.override {
+  environment.systemPackages = [
+    (pkgs.adi1090x-plymouth-themes.override {
       selected_themes = [ "loader_2" ];
     })
   ];
 
-  # Configuración activa de Plymouth
   boot.plymouth = {
     theme = "loader_2";
+    themePackages = [
+      (pkgs.adi1090x-plymouth-themes.override {
+        selected_themes = [ "loader_2" ];
+      })
+    ];
   };
 }

@@ -8,8 +8,8 @@ let
     src = pkgs.fetchFromGitHub {
       owner = "xenlism";
       repo = "Grub-themes";
-      rev = "5e75f9b3ea9061dca6c53d34e166e08bf9ebc7c7";  # Commit fijo
-      sha256 = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";  # Hash SRI
+      rev = "40ac048df9aacfc053c515b97fcd24af1a06762f";
+      sha256 = "sha256-ProTKsFocIxWAFbYgQ46A+GVZ7mUHXxZrvdiPJqZJ6I";
     };
 
     installPhase = ''

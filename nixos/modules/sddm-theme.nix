@@ -1,8 +1,6 @@
 { pkgs, ... }: {
   services.displayManager.sddm = {
     theme = "pixie";
-    # Crucial for Qt6: Use the KDE/Qt6 build of SDDM to fix missing cursors and module errors
-    package = pkgs.kdePackages.sddm; 
     settings = {
       Theme = {
         CursorTheme = "Bibata-Modern-Ice";
@@ -18,7 +16,7 @@
         owner = "xCaptaiN09";
         repo = "pixie-sddm";
         rev = "main";
-        hash = pkgs.lib.fakeHash;
+        hash = "sha256-A09sfUECmZw89U1k9L6di8i0v7av5/vC/JDpi5UZ9Ho";
       };
       installPhase = "
         mkdir -p $out/share/sddm/themes/pixie

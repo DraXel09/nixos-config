@@ -7,6 +7,9 @@
     ./utilidades.nix
     ./gaming-system.nix
     ./sunshine.nix
+    ./grub-theme.nix
+    ./sddm-theme.nix
+    ./plymouth-theme.nix
   ];
 
   # === Activación de Modulos ===
