@@ -32,6 +32,8 @@ in
 
      # Emuladores
      ryubing
+     cemu
+     rpcs3
 
      # Herramientas de Diagnóstico
      mesa-demos  
