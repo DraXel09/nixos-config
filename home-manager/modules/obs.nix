@@ -19,7 +19,6 @@ in
     # --- OBS Studio ---
     programs.obs-studio = lib.mkIf cfg.enable {
       enable = true;
-     # enableVirtualCamera = true; # Requiere v4l2loopback en el sistema
       plugins = with pkgs.obs-studio-plugins; [
         obs-vkcapture        # Captura de juegos Wayland/X11
         obs-move-transition  # Transiciones entre escenas

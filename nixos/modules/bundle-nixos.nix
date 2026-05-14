@@ -19,7 +19,7 @@
     enableProtonGE = true;
     enableInputRemapper = false;
   };
-  virtualCamera.enable = false; # Virtal Camera (SCRCPY)
+  virtualCamera.enable = true; # Virtal Camera (SCRCPY)
   plasma.enable = true;         # plasma.nix
   utilidades.enable = true;     # utilidades.nix
   tweaks.enable = true;         # tweaks.nix
