@@ -51,6 +51,7 @@ in
       usbutils
       ntfs3g
       exfat
+      android-tools
 
       # Compresión
       zip

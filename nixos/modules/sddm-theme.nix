@@ -16,8 +16,8 @@
 
   environment.systemPackages = [
     (inputs.pixie-sddm.packages.${pkgs.stdenv.hostPlatform.system}.pixie-sddm.override {
-      background = "../assets/sddm/background.png";
-      avatar = "../assets/sddm/avatar.png";
+      background = ../../assets/sddm/background.png;
+      avatar = ../../assets/sddm/avatar.png;
       autocolor = true;
       fontFamily = "JetBrains Mono";
       fontSize = 12;

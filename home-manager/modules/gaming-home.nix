@@ -26,14 +26,13 @@ in
     })
      umu-launcher
      faugus-launcher
-     wineWow64Packages.staging # Wine con soporte 64/32 bits
+     wineWow64Packages.staging           # Wine con soporte 64/32 bits
      winetricks 
      protonplus
 
      # Emuladores
      ryubing
      cemu
-     rpcs3
 
      # Herramientas de Diagnóstico
      mesa-demos  

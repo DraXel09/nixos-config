@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ pkgs, ... }: {
   home.packages = with pkgs; [
     # Desarrollo
     vscode-fhs
@@ -12,7 +12,5 @@
     libreoffice-qt-fresh
 
     # Temas y personalización
-    kdePackages.qtstyleplugin-kvantum
-    kdePackages.qt6ct
   ];
 }
