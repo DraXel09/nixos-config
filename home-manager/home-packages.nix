@@ -10,7 +10,6 @@
     scrcpy
     gearlever
     libreoffice-qt-fresh
-
-    # Temas y personalización
+    distrobox
   ];
 }
