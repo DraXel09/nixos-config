@@ -2,20 +2,19 @@
 {
   imports = [
     ./hardware-configuration.nix
-
     # Módulos personales
     ./modules/bundle-nixos.nix
     ./local-packages.nix
   ];
 
-  # === Kernel ===
+  # Kernel 
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  # === Identidad ===
+  # Identidad y Red
   networking.hostName = hostname;
   networking.networkmanager.enable = true;
 
-  # === Boot ===
+  # Boot 
   boot.loader = { 
     grub.enable = true;
     grub.device = "nodev";
@@ -25,23 +24,23 @@
     efi.canTouchEfiVariables = true;
   };
 
-  # === Plymouth ===
+  # Plymouth 
   boot.plymouth.enable = true;
   boot.consoleLogLevel = 0;
   boot.initrd.verbose = false;
 
-  # === Locale & Time ===
+  # Locale & Time 
   time.timeZone = "America/Guayaquil";
   i18n.defaultLocale = "es_MX.UTF-8";
  
-  # === KDE Plasma 6 ===
+  # KDE Plasma 6
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
   services.xserver.xkb.layout = "latam";
   services.libinput.enable = true;
   console.keyMap = "la-latin1";
 
-  # === Audio ===
+  # Audio
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -51,14 +50,14 @@
     pulse.enable = true;
   };
 
-  # === Usuario ===
+  # Usuario 
   users.users.${username} = {
     isNormalUser = true;
     description = "Joelly Bedoya";
     extraGroups = [ "networkmanager" "wheel" ];
   };
 
-  # === SSH & Firewall ===
+  # SSH & Firewall
   services.openssh = {
     enable = true;
     settings = {
@@ -69,11 +68,11 @@
   networking.firewall = {
     enable = true;
     allowedTCPPorts = [ 80 443 ];
-    # Permitir puertos UDP específicos (ej. para DNS o WireGuard)
-    #allowedUDPPorts = [ 53 51820 ];
+    allowedTCPPortRanges = [ { from = 1714; to = 1764; } ];
+    allowedUDPPortRanges = [ { from = 1714; to = 1764; } ];
   };
 
-  # === Sistema Base ===
+  # Sistema Base 
   services.printing.enable = true;
   services.tlp.enable = false;
   services.tuned.enable = true;
