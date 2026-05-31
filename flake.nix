@@ -4,10 +4,13 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:Nixos/nixos-hardware/master";
-    eden.url = "github:daaboulex/eden-nix";
     pixie-sddm.url = "github:xCaptaiN09/pixie-sddm";
     darkmatter-grub-theme = {
       url = "gitlab:VandalByte/darkmatter-grub-theme";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    eden = {
+      url = "github:daaboulex/eden-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager = {

@@ -9,12 +9,8 @@
     ./modules/bundle-home.nix
   ];
 
-  # === Shell ===
+  # Shell
   programs.bash.enable = true;
 
-  # === Git Config ===
-
-  # === Archivos de configuración (Dotfiles) ===
-  # Ejemplo: Enlazar configuraciones específicas de usuario
-  # home.file.".config/mi-app".source = ./config/mi-app;
+  home.enableNixpkgsReleaseCheck = false;
 }

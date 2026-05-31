@@ -68,8 +68,6 @@
   networking.firewall = {
     enable = true;
     allowedTCPPorts = [ 80 443 ];
-    allowedTCPPortRanges = [ { from = 1714; to = 1764; } ];
-    allowedUDPPortRanges = [ { from = 1714; to = 1764; } ];
   };
 
   # Sistema Base 
@@ -77,10 +75,8 @@
   services.tlp.enable = false;
   services.tuned.enable = true;
   services.tuned.ppdSupport = true;
-
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
   system.stateVersion = "25.11";
 }
 
