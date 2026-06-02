@@ -12,7 +12,7 @@
   };
   environment.systemPackages = with pkgs; [ 
     bleachbit
-    gparted
     waydroid-helper
+    gnome-disk-utility
   ];
 }

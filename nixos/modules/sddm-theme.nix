@@ -20,7 +20,7 @@
       avatar = ../../assets/sddm/avatar.png;
       autocolor = true;
       fontFamily = "JetBrains Mono";
-      fontSize = 12;
+      fontSize = 13;
     })
     pkgs.bibata-cursors
   ];

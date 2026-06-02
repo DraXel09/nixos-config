@@ -10,7 +10,6 @@ in
     # Servicio principal
     services.sunshine = {
       enable = true;
-      autoStart = false;
       capSysAdmin = true;
       openFirewall = true;         # Abre automáticamente los puertos necesarios
 

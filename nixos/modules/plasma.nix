@@ -4,7 +4,6 @@ let
   cfg = config.plasma;
 in 
 {
-  # --- Declaración de la opción ---
   options.plasma = {
     enable = lib.mkEnableOption "Habilitar configuraciones extras de KDE";
   };
@@ -33,6 +32,7 @@ in
       kdePackages.filelight
       kdePackages.qtwebengine
       kdePackages.kpmcore
+      kdePackages.partitionmanager
     ];
 
     # Integración móvil

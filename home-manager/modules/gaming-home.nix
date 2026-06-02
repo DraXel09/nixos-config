@@ -29,6 +29,7 @@ in
      wineWow64Packages.staging           # Wine con soporte 64/32 bits
      winetricks 
      protonplus
+     hydralauncher
 
      # Emuladores
      ryubing
