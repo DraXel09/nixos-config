@@ -14,5 +14,6 @@
     bleachbit
     waydroid-helper
     gnome-disk-utility
+    gamemode
   ];
 }

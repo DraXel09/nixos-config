@@ -10,6 +10,7 @@
     ./grub-theme.nix
     ./sddm-theme.nix
     ./plymouth-theme.nix
+    ./fonts.nix
   ];
 
   # === Activación de Modulos ===
@@ -19,7 +20,7 @@
     enableProtonGE = true;
     enableInputRemapper = false;
   };
-  virtualCamera.enable = true; # Virtal Camera (SCRCPY)
+  virtualCamera.enable = true; # Virtual Camera (SCRCPY)
   plasma.enable = true;         # plasma.nix
   utilidades.enable = true;     # utilidades.nix
   tweaks.enable = true;         # tweaks.nix

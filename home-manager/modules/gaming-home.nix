@@ -4,7 +4,6 @@ let
   cfg = config.gamingHome;
 in 
 {
-  # --- Declaración de Opciones ---
   options.gamingHome = {
     enable = lib.mkEnableOption "Configuración personalizada para gaming";
   };
@@ -30,7 +29,6 @@ in
      winetricks 
      protonplus
      hydralauncher
-
      # Emuladores
      ryubing
      cemu

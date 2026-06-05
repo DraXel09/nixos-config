@@ -5,9 +5,8 @@
     packages = with pkgs; [
       corefonts
       vista-fonts
-      fire-code
-      fire-code-symbols
-      
+      fira-code
+      fira-code-symbols
     ];
-  }
+  };
 }
