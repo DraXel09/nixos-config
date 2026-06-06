@@ -11,6 +11,4 @@
 
   # Shell
   programs.bash.enable = true;
-
-  home.enableNixpkgsReleaseCheck = false;
 }

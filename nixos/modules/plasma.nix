@@ -33,6 +33,7 @@ in
       kdePackages.qtwebengine
       kdePackages.kpmcore
       kdePackages.partitionmanager
+      kdePackages.krfb
     ];
 
     # Integración móvil
