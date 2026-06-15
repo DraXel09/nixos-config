@@ -9,17 +9,13 @@
       url = "gitlab:VandalByte/darkmatter-grub-theme";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    eden = {
-      url = "github:daaboulex/eden-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, nixos-hardware, eden, pixie-sddm, darkmatter-grub-theme, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, nixos-hardware, pixie-sddm, darkmatter-grub-theme, ... }@inputs: {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
 
@@ -27,7 +23,7 @@
       specialArgs = {
         username = "joellyb";
         hostname = "nixos";
-        inherit eden inputs;
+        inherit inputs;
       };
 
       modules = [
@@ -35,7 +31,6 @@
         darkmatter-grub-theme.nixosModule
         nixos-hardware.nixosModules.lenovo-ideapad-15alc6
         home-manager.nixosModules.home-manager
-        eden.nixosModules.default
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;

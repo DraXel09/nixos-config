@@ -1,6 +1,4 @@
-{ pkgs, eden, ... }: {
-  nixpkgs.overlays = [ eden.overlays.default ];
-  programs.eden.enable = true;
+{ pkgs, ... }: {
   programs.firefox.enable = true;
   virtualisation.waydroid = {
     enable = true;

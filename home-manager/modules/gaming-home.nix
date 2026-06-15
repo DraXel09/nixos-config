@@ -9,7 +9,7 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    # Paquetes y Programas para Gaming
+    
     home.packages = with pkgs; [
      # Lanzadores y Compatibilidad
     (lutris.override {
@@ -25,13 +25,14 @@ in
     })
      umu-launcher
      faugus-launcher
-     wineWow64Packages.staging           # Wine con soporte 64/32 bits
      winetricks 
      protonplus
      hydralauncher
+
      # Emuladores
      ryubing
      cemu
+     eden
 
      # Herramientas de Diagnóstico
      mesa-demos  
@@ -43,7 +44,6 @@ in
      vkbasalt 
 
      # Hardware Gaming 
-     joystickwake      # Despierta el sistema al conectar un mando
      #input-remapper   # Reasigna botones de mando (GUI)
    ];
 

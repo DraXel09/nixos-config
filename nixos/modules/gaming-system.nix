@@ -4,7 +4,6 @@ let
   cfg = config.programs.gaming;
 in
 {
-  # --- Declaración de Opciones ---
   options.programs.gaming = {
     enable = lib.mkEnableOption "Gaming support system-wide";
     enableProtonGE = lib.mkEnableOption "Proton GE compatibility layer";
@@ -15,16 +14,14 @@ in
 
     # Hardware gaming 
     hardware = {
-      steam-hardware.enable = true; 
-      #xone.enable = true;              
-      #xpadneo.enable = true;           
+      steam-hardware.enable = true;          
     };
 
     # Servicios
     programs.gamemode.enable = true; 
     programs.gamescope = {
       enable = true;
-      capSysNice = false; # Permite priorización de procesos (problemas con lutris)
+      capSysNice = false; # Permite priorización de procesos (problemas con lanzadores)
     };
 
     # Steam
