@@ -1,17 +1,20 @@
 { config, pkgs, ... }:
 
-{ 
-  virtualisation = {
+{
+  environment.systemPackages = with pkgs; [
+    qemu_kvm
+    virt-manager
+  ];
+  virtualisation.libvirtd = {
+    enable = true;
     qemu = {
-      package = pkgs.qemu_kvm;
-      ovmf.enable = true;
-      swtpm.enable = true;
+      swtpm.enable = true;  # TPM emulado
     };
-    libvirt.enable = true;
   };
   programs.virt-manager.enable = true;
+  virtualisation.spiceUSBRedirection.enable = true;
   users.users.joellyb = {
     isNormalUser = true;
-    extraGroups = [ "libvirt" "wheel" "kvm" ];
+    extraGroups = [ "libvirtd" "wheel" "kvm" "qemu" ];
   };
 }

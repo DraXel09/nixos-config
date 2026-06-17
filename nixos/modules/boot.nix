@@ -10,7 +10,7 @@ in
 
   config = lib.mkIf cfg.enable {
 
-    # --- Boot Tweaks ---
+    # Boot Tweaks 
     boot.kernelParams = [ 
       "quiet" 
       "splash"

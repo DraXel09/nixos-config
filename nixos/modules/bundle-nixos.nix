@@ -11,9 +11,9 @@
     ./sddm-theme.nix
     ./plymouth-theme.nix
     ./fonts.nix
+    ./vm.nix
   ];
 
-  # === Activación de Modulos ===
   # Gaming
   programs.gaming = {
     enable = true;

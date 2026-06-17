@@ -5,6 +5,7 @@
     # Módulos personales
     ./modules/bundle-nixos.nix
     ./local-packages.nix
+    ../overlays/default.nix
   ];
 
   # Kernel 

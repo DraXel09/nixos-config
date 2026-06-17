@@ -4,7 +4,6 @@ let
   cfg = config.utilidades;
 in 
 {
-  # --- Declaración de Opciones ---
   options.utilidades = {
     enable = lib.mkEnableOption "Utilidades adicionales para el sistema";
   };
