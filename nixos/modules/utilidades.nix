@@ -51,6 +51,7 @@ in
       ntfs3g
       exfat
       android-tools
+      adbfs-rootles
 
       # Compresión
       zip

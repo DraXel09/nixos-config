@@ -27,7 +27,6 @@ in
      faugus-launcher
      winetricks 
      protonplus
-     hydralauncher
 
      # Emuladores
      ryubing
@@ -43,7 +42,8 @@ in
      goverlay 
      vkbasalt 
 
-     # Hardware Gaming 
+     # Hardware Gaming
+     joystickwake   
      #input-remapper   # Reasigna botones de mando (GUI)
    ];
 
