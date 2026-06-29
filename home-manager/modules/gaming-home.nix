@@ -40,7 +40,9 @@ in
      # Overlay y Redimiento
      mangohud 
      goverlay 
-     vkbasalt 
+     vkbasalt
+     lsfg-vk-ui 
+     lsfg-vk
 
      # Hardware Gaming
      joystickwake   
