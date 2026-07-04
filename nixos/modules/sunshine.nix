@@ -10,6 +10,7 @@ in
     # Servicio principal
     services.sunshine = {
       enable = true;
+      autoStart = false;                # No iniciar automáticamente al arrancar
       capSysAdmin = true;
       openFirewall = true;         # Abre automáticamente los puertos necesarios
 
@@ -19,7 +20,7 @@ in
         width            = 1920;
         height           = 1080;
         fps              = 60;
-        bitrate          = 30000;    
+        bitrate          = 60000;    
         key_repeat_delay = 500;      
         key_repeat_rate  = 30;
         mouse_smoothness = 1;        # Minimiza input lag
@@ -31,8 +32,5 @@ in
     services.udev.extraRules = ''
       KERNEL=="event[0-9]*", SUBSYSTEM=="input", TAG+="uaccess"
     '';
-
-    # Notas de mantenimiento:
-    # - Si necesitas preconfigurar aplicaciones, usa `services.sunshine.applications`.
   };
 }

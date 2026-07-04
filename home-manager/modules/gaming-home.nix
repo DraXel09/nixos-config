@@ -27,6 +27,7 @@ in
      faugus-launcher
      winetricks 
      protonplus
+     protontricks
 
      # Emuladores
      ryubing

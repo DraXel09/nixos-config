@@ -18,8 +18,9 @@ in
       enable = true;
       algorithm = "zstd";
       memoryPercent = 30;
-      priority = 5;
+      priority = 100;
     };
+    systemd.oomd.enable = true;
 
     # Optimización automática del store de Nix
     nix = {
@@ -44,7 +45,7 @@ in
     nix.gc = {
       automatic = true;
       dates = [ "weekly" ];
-      options = "--delete-older-than 14d";  # eliminar generaciones 
+      options = "--delete-older-than 7d";  # eliminar generaciones 
     };
 
     # Hora local (útil si se tiene dual-boot con Windows)
