@@ -21,6 +21,7 @@ in
     programs.gamemode.enable = true; 
     programs.gamescope = {
       enable = true;
+      enableWsi = true;
       capSysNice = false; # Permite priorización de procesos (problemas con lanzadores)
     };
 

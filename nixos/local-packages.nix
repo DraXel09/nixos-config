@@ -13,5 +13,6 @@
     waydroid-helper
     gnome-disk-utility
     gamemode
+    gnome-boxes
   ];
 }

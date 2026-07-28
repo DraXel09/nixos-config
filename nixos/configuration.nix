@@ -39,7 +39,7 @@
   services.desktopManager.plasma6.enable = true;
   services.xserver.xkb.layout = "latam";
   services.libinput.enable = true;
-  console.keyMap = "la-latin1";
+  console.useXkbConfig = true;
 
   # Audio
   services.pulseaudio.enable = false;
@@ -58,14 +58,7 @@
     extraGroups = [ "networkmanager" "wheel" ];
   };
 
-  # SSH & Firewall
-  services.openssh = {
-    enable = true;
-    settings = {
-    PasswordAuthentication = false;
-    PermitRootLogin = "prohibit-password";
-    };
-  };
+  # Firewall
   networking.firewall = {
     enable = true;
     allowedTCPPorts = [ 80 443 ];
