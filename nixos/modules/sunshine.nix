@@ -10,9 +10,9 @@ in
     # Servicio principal
     services.sunshine = {
       enable = true;
-      autoStart = false;                # No iniciar automáticamente al arrancar
+      autoStart = false;
       capSysAdmin = true;
-      openFirewall = true;         # Abre automáticamente los puertos necesarios
+      openFirewall = true;
 
       settings = {
         port             = 47990;    # Puerto de escucha

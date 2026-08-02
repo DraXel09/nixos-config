@@ -14,9 +14,6 @@ in
     hardware = {
       graphics.enable = true;
       graphics.enable32Bit = true;
-      graphics.extraPackages = with pkgs; [ 
-        # rocmPackages.clr.icd  # Para Davinci Resolve
-      ];
       # opentabletdriver.enable = true; # Soporte para tabletas gráficas
     };
    

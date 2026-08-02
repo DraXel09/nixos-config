@@ -40,6 +40,7 @@ in
     
      # Overlay y Redimiento
      mangohud 
+     qt6Packages.libqtpas
      goverlay 
      vkbasalt
      lsfg-vk-ui 
@@ -47,12 +48,11 @@ in
 
      # Hardware Gaming
      joystickwake   
-     #input-remapper   # Reasigna botones de mando (GUI)
    ];
 
    home.sessionVariables = {
      # Ruta adicional para herramientas de compatibilidad de Steam (Proton custom)
-     STEAM_EXTRA_COMPAT_TOOLS_PATHS = "${config.home.homeDirectory}/.steam/root/compatibilitytools.d";
+     STEAM_EXTRA_COMPAT_TOOLS_PATHS = "\${HOME}/.steam/root/compatibilitytools.d";
    };
   };
 }

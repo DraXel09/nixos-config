@@ -14,13 +14,8 @@
     ./vm.nix
   ];
 
-  # Gaming
-  programs.gaming = {
-    enable = true;
-    enableProtonGE = true;
-    enableInputRemapper = false;
-  };
-  virtualCamera.enable = true; # Virtual Camera (SCRCPY)
+  programs.gaming.enable = true;# Gaming support system-wide
+  virtualCamera.enable = true;  # Virtual Camera (SCRCPY)
   plasma.enable = true;         # plasma.nix
   utilidades.enable = true;     # utilidades.nix
   tweaks.enable = true;         # tweaks.nix
