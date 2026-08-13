@@ -14,14 +14,6 @@ in
      # Lanzadores y Compatibilidad
     (lutris.override {
       extraLibraries = p: [ p.libadwaita p.gtk4 ];
-      buildFHSEnv = args: pkgs.buildFHSEnv (args // {
-        multiPkgs = envPkgs:
-          let
-            originalPkgs = args.multiPkgs envPkgs;
-            customLdap = envPkgs.openldap.overrideAttrs (_: { doCheck = false; });
-          in
-          builtins.filter (p: (p.pname or "") != "openldap") originalPkgs ++ [ customLdap ];
-      });
     })
      umu-launcher
      faugus-launcher

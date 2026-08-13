@@ -14,6 +14,7 @@ in
     hardware = {
       steam-hardware.enable = true;          
     };
+    boot.kernelModules = [ "ntsync" ];
 
     # Servicios
     programs.gamemode = {

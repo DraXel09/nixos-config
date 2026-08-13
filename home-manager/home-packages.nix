@@ -8,7 +8,6 @@
     # Utilidades personales
     vlc
     scrcpy
-    gearlever
     libreoffice-qt-fresh
     distrobox
   ];

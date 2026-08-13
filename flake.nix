@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     nixos-hardware.url = "github:Nixos/nixos-hardware/master";
     pixie-sddm.url = "github:xCaptaiN09/pixie-sddm";
     darkmatter-grub-theme = {
@@ -15,7 +16,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, nixos-hardware, pixie-sddm, darkmatter-grub-theme, ... }@inputs: {
+  outputs = { self, nixpkgs, chaotic,home-manager, nixos-hardware, pixie-sddm, darkmatter-grub-theme, ... }@inputs: {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
 
@@ -28,6 +29,7 @@
 
       modules = [
         ./nixos/configuration.nix
+        chaotic.nixosModules.default
         darkmatter-grub-theme.nixosModule
         nixos-hardware.nixosModules.lenovo-ideapad-15alc6
         home-manager.nixosModules.home-manager
