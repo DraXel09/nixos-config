@@ -9,6 +9,5 @@
     vlc
     scrcpy
     libreoffice-qt-fresh
-    distrobox
   ];
 }
