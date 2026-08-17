@@ -24,7 +24,7 @@ in
 
     # Paquetes específicos
     environment.plasma6.excludePackages = with pkgs.kdePackages; [
-        discover
+      discover
     ];
     environment.systemPackages = with pkgs; [
       kdePackages.kcalc
@@ -37,11 +37,6 @@ in
 
     # Integración móvil
     programs.kdeconnect.enable = true;
-
-    # Fix en aplicaciones GTK
-    environment.variables = {
-    GTK_MODULES = ""; 
-    };
 
     # SDDM
     services.displayManager.sddm = {
