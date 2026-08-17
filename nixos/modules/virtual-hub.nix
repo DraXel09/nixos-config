@@ -12,9 +12,6 @@
     enable = true;
     dockerCompat = true;
   };
-  home.packages = with pkgs; [
-    distrobox
-  ];
 
   # VM
   virtualisation.libvirtd = {

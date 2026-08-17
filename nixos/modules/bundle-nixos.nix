@@ -11,7 +11,7 @@
     ./sddm-theme.nix
     ./plymouth-theme.nix
     ./fonts.nix
-    ./vm.nix
+    ./virtual-hub.nix
   ];
 
   programs.gaming.enable = true;# Gaming support system-wide
