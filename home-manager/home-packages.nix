@@ -8,7 +8,9 @@
     # Utilidades personales
     vlc
     scrcpy
-    libreoffice-qt-fresh
+    libreoffice-qt
     distrobox
+    kontainer
+    handbrake
   ];
 }

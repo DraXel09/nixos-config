@@ -32,7 +32,6 @@ in
     
      # Overlay y Redimiento
      mangohud 
-     qt6Packages.libqtpas
      goverlay 
      vkbasalt
      lsfg-vk-ui 

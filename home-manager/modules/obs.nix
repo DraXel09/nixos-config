@@ -13,7 +13,6 @@ in
       enable = true;
       plugins = with pkgs.obs-studio-plugins; [
         obs-vkcapture        # Captura de juegos Wayland/X11
-        obs-move-transition  # Transiciones entre escenas
         obs-vaapi            # Aceleración hardware VAAPI (opcional)
       ];
     };

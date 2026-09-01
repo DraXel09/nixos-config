@@ -56,6 +56,7 @@ in
      LC_PAPER = "es_EC.UTF-8";
      LC_TELEPHONE = "es_EC.UTF-8";
      LC_TIME = "es_EC.UTF-8";
+     LC_MESSAGES = "es_EC.UTF-8";
     };
 
     # Ahorrar espacio

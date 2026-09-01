@@ -9,6 +9,12 @@ in
   };  
 
   config = lib.mkIf cfg.enable {
+    # Optimización de almacenamiento
+    services.btrfs.autoScrub = {
+      enable = true;
+      interval = "monthly";
+      fileSystems = [ "/" ]; # Cambiar si se desea otro filesystem
+    };
 
     # Cache de shaders Mesa
     environment.variables.MESA_SHADER_CACHE_MAX_SIZE = "6G";
@@ -22,11 +28,11 @@ in
     };
     systemd.oomd.enable = true;
 
-    # Optimización automática del store de Nix
-    nix = {
-      settings = {
-        auto-optimise-store = true;
-      };
+    # Eliminación de generaciones
+    nix.gc = {
+      automatic = true;
+      dates = [ "weekly" ];
+      options = "--delete-older-than 7d";
     };
 
     # Cache binaria de Nix
@@ -39,17 +45,10 @@ in
          "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
          "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
         ];
+      auto-optimise-store = true;
     };
-
-    # Eliminación de generaciones antiguas de Nix
-    nix.gc = {
-      automatic = true;
-      dates = [ "weekly" ];
-      options = "--delete-older-than 7d";  # eliminar generaciones 
-    };
-
+    
     # Hora local (útil si se tiene dual-boot con Windows)
     # time.hardwareClockInLocalTime = true;
-
   };
 }
