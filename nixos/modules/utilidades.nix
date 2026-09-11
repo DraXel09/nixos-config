@@ -17,7 +17,8 @@ in
       # opentabletdriver.enable = true; # Soporte para tabletas gráficas
     };
    
-    # Soporte para Flatpak, AppImage y Nix-ld
+    # Soporte para paquetes de terceros
+    services.envfs.enable = true;
     services.flatpak.enable = true;
     programs.nix-ld.enable = true;
     programs.appimage = {

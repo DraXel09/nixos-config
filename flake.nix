@@ -6,6 +6,10 @@
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     nixos-hardware.url = "github:Nixos/nixos-hardware/master";
     pixie-sddm.url = "github:xCaptaiN09/pixie-sddm";
+    lsfg-vk = {
+      url = "github:Daaboulex/lsfg-vk-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     darkmatter-grub-theme = {
       url = "gitlab:VandalByte/darkmatter-grub-theme";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -16,17 +20,14 @@
     };
   };
 
-  outputs = { self, nixpkgs, chaotic,home-manager, nixos-hardware, pixie-sddm, darkmatter-grub-theme, ... }@inputs: {
+  outputs = { self, nixpkgs, chaotic,home-manager, nixos-hardware, pixie-sddm, darkmatter-grub-theme, lsfg-vk, ... }@inputs: {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-
       # Pasamos variables clave para no hardcodearlas en los módulos
       specialArgs = {
         username = "joellyb";
         hostname = "nixos";
         inherit inputs;
       };
-
       modules = [
         ./nixos/configuration.nix
         chaotic.nixosModules.default

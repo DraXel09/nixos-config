@@ -16,6 +16,7 @@
   # VM
   virtualisation.libvirtd = {
     enable = true;
+    onBoot = "start";
     qemu = {
       swtpm.enable = true;
     };

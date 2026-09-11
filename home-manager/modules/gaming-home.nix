@@ -12,9 +12,7 @@ in
     
     home.packages = with pkgs; [
      # Lanzadores y Compatibilidad
-    (lutris.override {
-      extraLibraries = p: [ p.libadwaita p.gtk4 ];
-    })
+     lutris
      umu-launcher
      faugus-launcher
      winetricks 
@@ -34,8 +32,6 @@ in
      mangohud 
      goverlay 
      vkbasalt
-     lsfg-vk-ui 
-     lsfg-vk
 
      # Hardware Gaming
      joystickwake   

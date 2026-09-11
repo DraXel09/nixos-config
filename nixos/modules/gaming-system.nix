@@ -15,6 +15,9 @@ in
       steam-hardware.enable = true;          
     };
     boot.kernelModules = [ "ntsync" ];
+    environment.systemPackages = with pkgs; [
+      low-latency-layer
+    ];
 
     # Servicios
     programs.gamemode = {
