@@ -10,10 +10,7 @@ in
 
   config = lib.mkIf cfg.enable {
 
-    # Hardware gaming 
-    hardware = {
-      steam-hardware.enable = true;          
-    };
+    # Hardware gaming
     boot.kernelModules = [ "ntsync" ];
     environment.systemPackages = with pkgs; [
       low-latency-layer
@@ -47,6 +44,15 @@ in
     # Input Remapper
     services.input-remapper.enable = true;
 
+    # Firewall
+    networking.firewall = {
+      allowedUDPPorts = [ 19132 19133 7551 5555 ];
+    };
+
+    boot.kernel.sysctl = {
+     "net.ipv6.conf.wlp1s0.disable_ipv6" = 1;
+    };
+    
     # VkBasalt
     # Instalamos el archivo de configuración del layer Vulkan manualmente
     environment.etc."vulkan/implicit_layer.d/vkBasalt.json".source =

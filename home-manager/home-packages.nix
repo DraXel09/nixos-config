@@ -11,6 +11,6 @@
     libreoffice-qt
     distrobox
     kontainer
-    handbrake
+    #handbrake
   ];
 }

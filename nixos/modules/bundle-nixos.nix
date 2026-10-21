@@ -3,7 +3,7 @@
     ./plasma.nix
     ./tweaks.nix
     ./boot.nix
-    ./virtual-camera.nix
+    #./virtual-camera.nix
     ./utilidades.nix
     ./gaming-system.nix
     ./sunshine.nix
@@ -15,10 +15,8 @@
   ];
 
   programs.gaming.enable = true;# Gaming support system-wide
-  virtualCamera.enable = true;  # Virtual Camera (SCRCPY)
   plasma.enable = true;         # plasma.nix
   utilidades.enable = true;     # utilidades.nix
   tweaks.enable = true;         # tweaks.nix
-  myBoot.enable = true;         # Activar boot.nix
   sunshine.enable = true;       # Activar sunshine.nix
 }

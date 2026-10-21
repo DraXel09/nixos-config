@@ -26,6 +26,7 @@ in
     environment.plasma6.excludePackages = with pkgs.kdePackages; [
       discover
     ];
+    programs.kde-pim.enable = false;
     environment.systemPackages = with pkgs; [
       kdePackages.kcalc
       kdePackages.kate

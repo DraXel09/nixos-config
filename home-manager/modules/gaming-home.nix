@@ -30,7 +30,7 @@ in
     
      # Overlay y Redimiento
      mangohud 
-     goverlay 
+     #goverlay 
      vkbasalt
 
      # Hardware Gaming
